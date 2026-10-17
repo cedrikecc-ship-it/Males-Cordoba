@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resguardo Indígena de Males</title>
+    <meta name="description" content="Espacio para conocer y divulgar la cultura del Resguardo Indígena de Males.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="index.html">
+                <!-- Logo: colocar el archivo en frontend/img/logo.png. Si no existe, se muestra el espacio provisional. -->
+                <span class="brand__logo">
+                    <span class="brand__logo-placeholder">Logo</span>
+                    <img src="img/logo.png" alt="" data-fallback>
+                </span>
+                <span class="brand__name">Resguardo Indígena de Males</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+                aria-label="Abrir menú">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+
+            <!-- Cada sección abre seccion.html?tipo=...; "Acceso administrativo" sigue provisional ("#") hasta la etapa del panel -->
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Inicio</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=cultura">Cultura</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=comidas">Comidas</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=lugares">Lugares</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=tradiciones">Tradiciones</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=historia">Historia</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=galeria">Galería</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=eventos">Eventos</a></li>
+                    <li><a class="main-nav__link main-nav__link--admin" href="admin.html">Acceso
+                            administrativo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN PRINCIPAL -->
+        <!-- Imagen de portada configurable (la aplica app.js):
+         data-hero-image    ruta o URL de la imagen; vacío = fondo verde oscuro
+         data-hero-position posición de la imagen (center, top, center 30%...)
+         data-hero-overlay  capa oscura neutra de 0 a 1 (si hay imagen y no se indica, 0.25)
+         Opcional: data-hero-position-mobile para otra posición en móvil.
+         Para probar: data-hero-image="img/portada-prueba.jpg" -->
+        <section class="hero" id="inicio" data-hero-image="img/portada.png" data-hero-position="center"
+            data-hero-overlay="0.25">
+            <div class="hero__inner">
+                <h1 class="hero__title">Resguardo Indígena de Males</h1>
+                <p class="hero__text">
+                    Bienvenido. Este espacio nace para reunir, organizar y compartir la información cultural del
+                    Resguardo.
+                </p>
+                <a class="btn btn--primary" href="#explorar">Conocer nuestra cultura</a>
+                <p class="hero__note">Texto de bienvenida provisional.</p>
+            </div>
+        </section>
+
+        <!-- ACCESOS A CONTENIDOS -->
+        <section class="explore" id="explorar">
+            <div class="container">
+                <h2 class="explore__title">Explora el sitio</h2>
+                <p class="explore__intro">Elige una sección. Cada una se irá completando con contenido validado.</p>
+
+                <!-- Imágenes de tarjetas: frontend/img/cultura.jpg, comidas.jpg, lugares.jpg, tradiciones.jpg, historia.jpg, galeria.jpg, eventos.jpg -->
+                <ul class="card-grid">
+                    <li class="card card--featured">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/cultura.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Cultura</h3>
+                            <p class="card__text">Contenido provisional: aquí se presentará la información cultural del
+                                Resguardo.</p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=cultura">Ver cultura</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/comidas.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Comidas</h3>
+                            <p class="card__text">Contenido provisional: aquí se presentarán las comidas del Resguardo.
+                            </p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=comidas">Ver comidas</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/lugares.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Lugares</h3>
+                            <p class="card__text">Contenido provisional: aquí se presentarán los lugares del Resguardo.
+                            </p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=lugares">Ver lugares</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/tradiciones.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Tradiciones</h3>
+                            <p class="card__text">Contenido provisional: aquí se presentarán las tradiciones del
+                                Resguardo.</p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=tradiciones">Ver tradiciones</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/historia.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Historia</h3>
+                            <p class="card__text">Contenido provisional: aquí se presentará la historia del Resguardo.
+                            </p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=historia">Ver historia</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/galeria.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Galería</h3>
+                            <p class="card__text">Contenido provisional: aquí se mostrarán fotografías y videos
+                                autorizados.</p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=galeria">Ver galería</a>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="card__media">
+                            <span class="card__media-label">Imagen provisional</span>
+                            <img src="img/eventos.jpg" alt="" data-fallback loading="lazy">
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Eventos</h3>
+                            <p class="card__text">Contenido provisional: aquí se publicarán los eventos del Resguardo.
+                            </p>
+                            <a class="btn btn--outline" href="seccion.html?tipo=eventos">Ver eventos</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <p class="site-footer__name">Resguardo Indígena de Males</p>
+            <p class="site-footer__copy">© 2026 Resguardo Indígena de Males. Información de derechos de autor
+                provisional.</p>
+            <a class="site-footer__admin" href="admin.html">Acceso administrativo</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

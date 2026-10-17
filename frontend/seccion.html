@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sección | Resguardo Indígena de Males</title>
+    <meta name="description" content="Información cultural del Resguardo Indígena de Males.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- Orden importante: primero los datos, luego el script que los muestra -->
+    <script src="js/app.js" defer></script>
+    <script src="js/contenido-provisional.js" defer></script>
+    <script src="js/seccion.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO (igual que en index.html) -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="index.html">
+                <span class="brand__logo">
+                    <span class="brand__logo-placeholder">Logo</span>
+                    <img src="img/logo.png" alt="" data-fallback>
+                </span>
+                <span class="brand__name">Resguardo Indígena de Males</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+                aria-label="Abrir menú">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Inicio</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=cultura">Cultura</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=comidas">Comidas</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=lugares">Lugares</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=tradiciones">Tradiciones</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=historia">Historia</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=galeria">Galería</a></li>
+                    <li><a class="main-nav__link" href="seccion.html?tipo=eventos">Eventos</a></li>
+                    <li><a class="main-nav__link main-nav__link--admin" href="admin.html">Acceso administrativo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Título y descripción: los rellena js/seccion.js según ?tipo= de la dirección -->
+        <section class="page-header">
+            <div class="page-header__inner">
+                <h1 class="page-header__title" id="seccion-titulo">Cargando…</h1>
+                <p class="page-header__text" id="seccion-descripcion"></p>
+            </div>
+        </section>
+
+        <section class="section-page">
+            <div class="container">
+                <p class="provisional-note" id="seccion-aviso" hidden>
+                    Esta sección muestra contenido de ejemplo provisional. La información real se agregará cuando esté
+                    validada.
+                </p>
+
+                <ul class="card-grid card-grid--items" id="seccion-elementos"></ul>
+
+                <p class="empty-state" id="seccion-mensaje" hidden></p>
+
+                <noscript>
+                    <p class="empty-state">Esta página necesita JavaScript para mostrar su contenido.</p>
+                </noscript>
+
+                <a class="btn btn--outline section-page__back" href="index.html">Volver al inicio</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA (igual que en index.html) -->
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <p class="site-footer__name">Resguardo Indígena de Males</p>
+            <p class="site-footer__copy">© 2026 Resguardo Indígena de Males. Información de derechos de autor
+                provisional.</p>
+            <a class="site-footer__admin" href="admin.html">Acceso administrativo</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

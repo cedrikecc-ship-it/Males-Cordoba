@@ -1,0 +1,612 @@
+/* ==========================================================
+   Cultural Males - Estilos del panel administrativo (admin.html)
+   Archivo independiente: todas las clases empiezan con "adm-"
+   para no chocar con css/estilos.css de la página pública.
+   Mobile-first: lo base es móvil; los @media amplían.
+   ========================================================== */
+
+:root {
+    --adm-green-900: #0f3a35;
+    --adm-green-700: #17504a;
+    --adm-green-500: #2b6e66;
+    --adm-cream: #f6f1e7;
+    --adm-earth: #8a5a2b;
+    --adm-earth-soft: #ead9bd;
+    --adm-ink: #1f2a28;
+    --adm-muted: #5c6a66;
+    --adm-border: #e2d9c6;
+    --adm-danger: #a33a2a;
+
+    --adm-font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --adm-font-heading: Georgia, "Times New Roman", serif;
+    --adm-radius: 14px;
+    --adm-shadow: 0 1px 2px rgba(15, 58, 53, 0.06), 0 6px 18px rgba(15, 58, 53, 0.07);
+    --adm-touch: 48px;
+    /* tamaño mínimo cómodo para tocar */
+    --adm-sidebar-width: 280px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.adm-body {
+    margin: 0;
+    font-family: var(--adm-font-body);
+    line-height: 1.6;
+    color: var(--adm-ink);
+    background: var(--adm-cream);
+}
+
+.adm-body h1,
+.adm-body h2 {
+    margin: 0;
+    font-family: var(--adm-font-heading);
+    line-height: 1.2;
+}
+
+.adm-body p {
+    margin: 0;
+}
+
+.adm-no-scroll {
+    overflow: hidden;
+}
+
+:focus-visible {
+    outline: 3px solid var(--adm-earth);
+    outline-offset: 2px;
+}
+
+.adm-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.adm-icon {
+    flex: none;
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Espacio provisional para el logo */
+.adm-logo {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border: 2px dashed var(--adm-border);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    color: var(--adm-muted);
+}
+
+.adm-logo--small {
+    width: 44px;
+    height: 44px;
+    font-size: 0.7rem;
+}
+
+/* ---------- Botones y enlaces ---------- */
+.adm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: var(--adm-touch);
+    padding: 0.6rem 1.25rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.adm-btn--primary {
+    width: 100%;
+    background: var(--adm-green-700);
+    color: #fff;
+}
+
+.adm-btn--primary:hover {
+    background: var(--adm-green-900);
+}
+
+.adm-btn--outline {
+    border-color: var(--adm-green-700);
+    background: transparent;
+    color: var(--adm-green-700);
+}
+
+.adm-btn--outline:hover {
+    background: var(--adm-green-700);
+    color: #fff;
+}
+
+.adm-btn--light {
+    background: var(--adm-cream);
+    color: var(--adm-green-900);
+}
+
+.adm-btn--light:hover {
+    background: #fff;
+}
+
+.adm-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: var(--adm-touch);
+    color: var(--adm-green-700);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.adm-link:hover {
+    text-decoration: underline;
+}
+
+.adm-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* ---------- Pantalla de acceso ---------- */
+.adm-login {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 1.25rem;
+    background: radial-gradient(circle at 50% 0%, #dfeae5 0, var(--adm-cream) 60%);
+}
+
+.adm-login__card {
+    width: 100%;
+    max-width: 26rem;
+    padding: 2rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--adm-border);
+    border-top: 5px solid var(--adm-earth);
+    border-radius: var(--adm-radius);
+    box-shadow: var(--adm-shadow);
+}
+
+.adm-login__head {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.adm-login__head .adm-logo {
+    margin: 0 auto 1rem;
+}
+
+.adm-login__title {
+    font-size: 1.75rem;
+    color: var(--adm-green-700);
+}
+
+.adm-login__text {
+    margin-top: 0.5rem;
+    color: var(--adm-muted);
+}
+
+.adm-notice {
+    margin: 1.25rem 0 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border-left: 4px solid var(--adm-earth);
+    border-radius: 0 10px 10px 0;
+    background: #fbf3e4;
+    font-size: 0.85rem;
+}
+
+/* ---------- Formulario ---------- */
+.adm-field {
+    margin-bottom: 1.1rem;
+}
+
+.adm-field__label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.adm-input {
+    width: 100%;
+    min-height: var(--adm-touch);
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid #cfc5ae;
+    border-radius: 10px;
+    background: #fff;
+    font: inherit;
+    font-size: 1rem;
+    /* 16px evita el zoom automático en iPhone */
+    color: var(--adm-ink);
+}
+
+.adm-input:focus {
+    outline: 3px solid rgba(23, 80, 74, 0.25);
+    border-color: var(--adm-green-700);
+}
+
+.adm-input[aria-invalid="true"] {
+    border-color: var(--adm-danger);
+}
+
+.adm-field__error {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--adm-danger);
+}
+
+.adm-password {
+    position: relative;
+}
+
+.adm-password .adm-input {
+    padding-right: 3.25rem;
+}
+
+.adm-password__toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: var(--adm-touch);
+    height: var(--adm-touch);
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    color: var(--adm-muted);
+    cursor: pointer;
+}
+
+/* ---------- Estructura del panel ---------- */
+.adm-app {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.adm-main {
+    min-width: 0;
+}
+
+/* Menú lateral: en móvil se desliza desde la izquierda */
+.adm-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: min(85vw, var(--adm-sidebar-width));
+    padding: 1rem;
+    overflow-y: auto;
+    background: var(--adm-green-900);
+    color: #e6efec;
+    transform: translateX(-100%);
+    transition: transform 0.2s;
+}
+
+.adm-sidebar.is-open {
+    transform: none;
+}
+
+.adm-sidebar :focus-visible {
+    outline-color: #f0cf9f;
+}
+
+.adm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: rgba(15, 25, 23, 0.5);
+}
+
+.adm-sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.25rem 0.25rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.adm-sidebar .adm-logo {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #e6efec;
+}
+
+.adm-sidebar__name {
+    font-family: var(--adm-font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.adm-sidebar__sub {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.adm-nav {
+    flex: 1;
+}
+
+.adm-nav__list {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.adm-nav__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: var(--adm-touch);
+    padding: 0 0.75rem;
+    border: 0;
+    border-left: 4px solid transparent;
+    border-radius: 10px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.adm-nav__item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.adm-nav__item.is-active {
+    border-left-color: #d9a768;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-weight: 600;
+}
+
+.adm-sidebar__footer {
+    display: grid;
+    gap: 0.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Barra superior */
+.adm-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 64px;
+    padding: 0 1rem;
+    background: #fff;
+    border-bottom: 1px solid var(--adm-border);
+}
+
+.adm-topbar__menu {
+    display: grid;
+    place-items: center;
+    width: var(--adm-touch);
+    height: var(--adm-touch);
+    border: 1px solid var(--adm-border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--adm-green-700);
+    cursor: pointer;
+}
+
+.adm-topbar__title {
+    font-size: 1.35rem;
+    color: var(--adm-green-700);
+}
+
+.adm-topbar__title:focus {
+    outline: none;
+}
+
+.adm-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 3rem;
+}
+
+/* ---------- Vista de inicio ---------- */
+.adm-welcome {
+    padding: 1.5rem;
+    border-radius: var(--adm-radius);
+    background: linear-gradient(135deg, var(--adm-green-900), var(--adm-green-500));
+    color: #fff;
+    box-shadow: var(--adm-shadow);
+}
+
+.adm-welcome__title {
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+}
+
+.adm-welcome__text {
+    max-width: 40rem;
+    margin: 0.5rem 0 1.25rem;
+}
+
+.adm-section-title {
+    margin: 2rem 0 1rem;
+    font-size: 1.25rem;
+    color: var(--adm-green-700);
+}
+
+.adm-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.adm-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    background: #fff;
+    box-shadow: var(--adm-shadow);
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.adm-card:hover {
+    border-color: var(--adm-green-500);
+    transform: translateY(-2px);
+}
+
+.adm-card__icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--adm-earth-soft);
+    color: var(--adm-earth);
+}
+
+.adm-card__title {
+    font-family: var(--adm-font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--adm-green-700);
+}
+
+.adm-card__text {
+    font-size: 0.95rem;
+    color: var(--adm-muted);
+}
+
+.adm-tag {
+    margin-top: auto;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background: var(--adm-cream);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--adm-earth);
+}
+
+/* ---------- Vista "Módulo en construcción" ---------- */
+.adm-construction {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+    padding: 2.5rem 1.25rem;
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    background: #fff;
+    box-shadow: var(--adm-shadow);
+    text-align: center;
+}
+
+.adm-construction .adm-card__icon {
+    width: 56px;
+    height: 56px;
+}
+
+.adm-construction__title {
+    font-size: 1.5rem;
+    color: var(--adm-green-700);
+}
+
+.adm-construction__text {
+    max-width: 32rem;
+    color: var(--adm-muted);
+}
+
+/* ---------- Tablet (640px) ---------- */
+@media (min-width: 640px) {
+    .adm-login__card {
+        padding: 2.5rem 2rem;
+    }
+
+    .adm-content {
+        padding: 2rem 1.5rem 3rem;
+    }
+
+    .adm-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Escritorio (900px): menú lateral fijo ---------- */
+@media (min-width: 900px) {
+    .adm-app {
+        grid-template-columns: var(--adm-sidebar-width) minmax(0, 1fr);
+    }
+
+    .adm-sidebar {
+        position: sticky;
+        z-index: auto;
+        height: 100vh;
+        height: 100dvh;
+        width: auto;
+        transform: none;
+    }
+
+    .adm-overlay,
+    .adm-topbar__menu {
+        display: none;
+    }
+
+    .adm-topbar {
+        padding: 0 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .adm-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .adm-sidebar,
+    .adm-card {
+        transition: none;
+    }
+
+    .adm-card:hover {
+        transform: none;
+    }
+}
