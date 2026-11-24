@@ -1,0 +1,294 @@
+/* ==========================================================
+   Cultural Males - Estilos del módulo "Identidad y portada"
+   Se carga después de admin.css y usa sus variables (--adm-*).
+   ========================================================== */
+
+/* ---------- Avisos y mensajes ---------- */
+.adm-banner {
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    border-left: 4px solid var(--adm-earth);
+    border-radius: 0 10px 10px 0;
+    background: #fbf3e4;
+    font-size: 0.95rem;
+}
+
+.adm-alert {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--adm-border);
+    border-left-width: 4px;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.adm-alert--info {
+    border-left-color: var(--adm-green-500);
+    background: #eaf2ef;
+}
+
+.adm-alert--warn {
+    border-left-color: var(--adm-earth);
+    background: #fbf3e4;
+}
+
+.adm-alert--error {
+    border-left-color: var(--adm-danger);
+    background: #fbeceb;
+    color: #7d2a1e;
+}
+
+.adm-alert--ok {
+    border-left-color: var(--adm-green-700);
+    background: #e3f1e8;
+}
+
+.adm-field__note {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--adm-muted);
+}
+
+.adm-field__note--warn {
+    color: var(--adm-earth);
+    font-weight: 600;
+}
+
+/* ---------- Formulario ---------- */
+.adm-form {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.adm-form__card {
+    padding: 1.25rem;
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    background: #fff;
+    box-shadow: var(--adm-shadow);
+}
+
+.adm-form__title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--adm-green-700);
+}
+
+.adm-textarea {
+    resize: vertical;
+    min-height: 7rem;
+}
+
+.adm-btn--ghost {
+    border-color: var(--adm-border);
+    background: #fff;
+    color: var(--adm-ink);
+}
+
+.adm-btn--ghost:hover {
+    background: var(--adm-cream);
+}
+
+.adm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.adm-form__actions {
+    display: grid;
+    gap: 0.75rem;
+}
+
+/* ---------- Selector de imagen ---------- */
+.adm-uploader {
+    display: grid;
+    gap: 1rem;
+}
+
+.adm-uploader__preview {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px dashed #cfc5ae;
+    background: var(--adm-cream);
+    font-size: 0.85rem;
+    color: var(--adm-muted);
+}
+
+.adm-uploader__preview--logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.adm-uploader__preview--cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+}
+
+.adm-uploader__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adm-uploader__meta {
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    word-break: break-word;
+}
+
+.adm-uploader__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Campo de archivo nativo oculto a la vista, pero accesible con teclado */
+.adm-file__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.adm-file__input:focus-visible+.adm-btn {
+    outline: 3px solid var(--adm-earth);
+    outline-offset: 2px;
+}
+
+/* ---------- Vista previa de la portada ---------- */
+.adm-prev {
+    margin-top: 1.5rem;
+}
+
+.adm-prev__frame {
+    margin-top: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    background: #fff;
+    box-shadow: var(--adm-shadow);
+}
+
+.adm-prev__bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--adm-border);
+    font-family: var(--adm-font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--adm-green-700);
+}
+
+.adm-prev__logo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    border: 2px dashed var(--adm-border);
+    border-radius: 50%;
+    font-family: var(--adm-font-body);
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--adm-muted);
+}
+
+.adm-prev__logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #fff;
+}
+
+/* Misma lógica que la portada pública: foto + capa neutra, con verde de respaldo */
+.adm-prev__hero {
+    --adm-prev-overlay: 0;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: 15rem;
+    padding: 2rem 1.25rem;
+    color: #fff;
+    background-color: #0f3a35;
+    background-image: var(--adm-prev-image, none), linear-gradient(135deg, #0f3a35, #2b6e66);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.adm-prev__hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, var(--adm-prev-overlay));
+}
+
+.adm-prev__title {
+    max-width: 16ch;
+    font-family: var(--adm-font-heading);
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+.adm-prev__text {
+    max-width: 32rem;
+    margin: 0.75rem 0 1.25rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+.adm-prev__btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    background: #c98b2b;
+    color: #1b2524;
+    font-weight: 600;
+}
+
+/* ---------- Tablet (640px) ---------- */
+@media (min-width: 640px) {
+    .adm-form__card {
+        padding: 1.5rem;
+    }
+
+    .adm-form__actions {
+        grid-template-columns: repeat(3, auto);
+        justify-content: end;
+    }
+
+    .adm-form__actions .adm-btn--primary {
+        width: auto;
+    }
+
+    .adm-uploader {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+    }
+
+    .adm-uploader[data-imagen="portada"] {
+        grid-template-columns: minmax(0, 20rem) 1fr;
+    }
+
+    .adm-prev__hero {
+        padding: 2.5rem 2rem;
+    }
+}
