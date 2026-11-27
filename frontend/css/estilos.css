@@ -20,7 +20,6 @@
     --max-width: 1180px;
     --header-height: 68px;
     --touch-size: 48px;
-    /* tamaño mínimo cómodo para tocar */
 }
 
 /* ---------- Base ---------- */
@@ -85,7 +84,6 @@ h3 {
     padding: 0 1.25rem;
 }
 
-/* Imagen que no cargó (la oculta app.js para mostrar el espacio provisional) */
 .is-missing {
     display: none;
 }
@@ -184,6 +182,7 @@ h3 {
     background: var(--color-surface);
 }
 
+/* Nombre del proyecto */
 .brand__name {
     font-family: var(--font-heading);
     font-size: 1.05rem;
@@ -229,7 +228,7 @@ h3 {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Menú: en móvil es un panel desplegable bajo el encabezado */
+/* Menú móvil */
 .main-nav {
     display: none;
     position: absolute;
@@ -271,13 +270,6 @@ h3 {
 }
 
 /* ---------- Sección principal (hero) ---------- */
-/* Fondo configurable. app.js (aplicarConfiguracionPortada) escribe estas variables sobre .hero:
-   --hero-image            imagen de fondo, por ejemplo url("img/portada.jpg"). Por defecto: ninguna
-   --hero-position         posición de la imagen (center, top, center 30%...)
-   --hero-position-mobile  posición solo en móvil (opcional; si falta, usa --hero-position)
-   --hero-overlay          opacidad de la capa oscura, de 0 (sin capa) a 1
-   --hero-overlay-rgb      color de la capa; por defecto negro neutro (0, 0, 0), sin tinte
-   Sin imagen, o si esta falla al cargar, se ve el degradado verde oscuro de respaldo. */
 .hero {
     --hero-image: none;
     --hero-position: center;
@@ -286,7 +278,6 @@ h3 {
 
     position: relative;
     isolation: isolate;
-    /* mantiene la capa oscura dentro de la portada */
     display: flex;
     align-items: center;
     min-height: 70vh;
@@ -301,7 +292,6 @@ h3 {
     background-repeat: no-repeat;
 }
 
-/* Capa oscura opcional: con --hero-overlay en 0 no se nota */
 .hero::before {
     content: "";
     position: absolute;
@@ -311,7 +301,6 @@ h3 {
     pointer-events: none;
 }
 
-/* Sombra suave: permite leer el texto sobre fotografías claras con una capa mínima */
 .hero__title,
 .hero__text,
 .hero__note {
@@ -346,6 +335,122 @@ h3 {
     opacity: 0.8;
 }
 
+/* ---------- Buscador de información cultural (HU-01) ---------- */
+.search-section {
+    padding: 3rem 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.search-section h2 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.search-section>.container>p {
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 700px;
+}
+
+.search-form input {
+    width: 100%;
+    min-height: var(--touch-size);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font: inherit;
+}
+
+.search-form input:focus {
+    border-color: var(--color-primary);
+    outline: 3px solid rgba(23, 80, 74, 0.15);
+}
+
+.search-form button {
+    min-height: var(--touch-size);
+    padding: 0.7rem 1.5rem;
+    border: 0;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.search-form button:hover {
+    background: var(--color-primary-dark);
+}
+
+.search-results {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin-top: 1.5rem;
+}
+
+.search-results:empty {
+    display: none;
+}
+
+.search-results>p {
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.search-results .resumen-resultados {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.resultado-busqueda {
+    display: block;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 10px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.resultado-busqueda:hover {
+    border-color: var(--color-primary);
+    background: #edf3ef;
+}
+
+.resultado-busqueda h3 {
+    margin-bottom: 0.35rem;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+}
+
+.resultado-busqueda p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+.sin-resultados {
+    padding: 1rem;
+    border: 1px dashed var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg);
+}
+
 /* ---------- Accesos a contenidos ---------- */
 .explore {
     padding: 3.5rem 0 4rem;
@@ -365,7 +470,6 @@ h3 {
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* móvil: una columna */
     gap: 1.25rem;
 }
 
@@ -378,7 +482,6 @@ h3 {
     border-radius: 14px;
 }
 
-/* Espacio de imagen: el texto provisional queda detrás y la imagen real lo cubre al existir */
 .card__media {
     position: relative;
     display: flex;
@@ -456,8 +559,72 @@ h3 {
     color: #fff;
 }
 
+/* ---------- Páginas de sección ---------- */
+.main-nav__link[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.page-header {
+    padding: 2.5rem 1.25rem;
+    color: #fff;
+    background: linear-gradient(135deg, #0f3a35, #2b6e66);
+}
+
+.page-header__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.page-header__title {
+    font-size: clamp(2rem, 7vw, 3.25rem);
+}
+
+.page-header__text {
+    max-width: 38rem;
+    margin: 0.75rem 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.section-page {
+    padding: 2.5rem 0 4rem;
+}
+
+.provisional-note {
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 10px 10px 0;
+    background: #fbf3e4;
+    font-size: 0.95rem;
+}
+
+.card--item .card__text {
+    margin-bottom: 0;
+}
+
+.card__meta {
+    margin: 0 0 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-muted);
+}
+
+.empty-state {
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px dashed var(--color-border);
+    border-radius: 14px;
+    background: var(--color-surface);
+    color: var(--color-muted);
+}
+
+.section-page__back {
+    margin-top: 2rem;
+}
+
 /* ==========================================================
-   Tablet (a partir de 640px): tarjetas en 2 columnas
+   Tablet (a partir de 640px)
    ========================================================== */
 @media (min-width: 640px) {
     .container {
@@ -479,6 +646,19 @@ h3 {
         width: auto;
     }
 
+    .search-form {
+        flex-direction: row;
+    }
+
+    .search-form input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .search-form button {
+        min-width: 130px;
+    }
+
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -490,10 +670,14 @@ h3 {
     .brand__name {
         font-size: 1.2rem;
     }
+
+    .page-header {
+        padding: 3.5rem 2rem;
+    }
 }
 
 /* ==========================================================
-   Escritorio (a partir de 1100px): menú horizontal y 4 columnas
+   Escritorio (a partir de 1100px)
    ========================================================== */
 @media (min-width: 1100px) {
     .nav-toggle {
@@ -537,93 +721,14 @@ h3 {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    .card-grid.card-grid--items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .site-footer__inner {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 2rem;
-    }
-}
-
-/* ==========================================================
-   Páginas de sección (seccion.html)
-   Reutiliza encabezado, pie, botones y tarjetas de arriba.
-   ========================================================== */
-
-/* Enlace de la sección actual en el menú */
-.main-nav__link[aria-current="page"] {
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-/* Franja de título (mismo degradado verde que la portada sin imagen) */
-.page-header {
-    padding: 2.5rem 1.25rem;
-    color: #fff;
-    background: linear-gradient(135deg, #0f3a35, #2b6e66);
-}
-
-.page-header__inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.page-header__title {
-    font-size: clamp(2rem, 7vw, 3.25rem);
-}
-
-.page-header__text {
-    max-width: 38rem;
-    margin: 0.75rem 0 0;
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
-}
-
-.section-page {
-    padding: 2.5rem 0 4rem;
-}
-
-.provisional-note {
-    margin: 0 0 1.5rem;
-    padding: 0.75rem 1rem;
-    border-left: 4px solid var(--color-accent);
-    border-radius: 0 10px 10px 0;
-    background: #fbf3e4;
-    font-size: 0.95rem;
-}
-
-/* Tarjetas de elementos (sin botón) */
-.card--item .card__text {
-    margin-bottom: 0;
-}
-
-.card__meta {
-    margin: 0 0 0.25rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-muted);
-}
-
-.empty-state {
-    margin: 0;
-    padding: 1.5rem;
-    border: 1px dashed var(--color-border);
-    border-radius: 14px;
-    background: var(--color-surface);
-    color: var(--color-muted);
-}
-
-.section-page__back {
-    margin-top: 2rem;
-}
-
-@media (min-width: 640px) {
-    .page-header {
-        padding: 3.5rem 2rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    .card-grid.card-grid--items {
-        grid-template-columns: repeat(3, 1fr);
     }
 }

@@ -7,6 +7,7 @@
     <title>Resguardo Indígena de Males</title>
     <meta name="description" content="Espacio para conocer y divulgar la cultura del Resguardo Indígena de Males.">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/contenido-provisional.js" defer></script>
     <script src="js/app.js" defer></script>
 </head>
 
@@ -16,7 +17,6 @@
     <header class="site-header">
         <div class="site-header__inner">
             <a class="brand" href="index.html">
-                <!-- Logo: colocar el archivo en frontend/img/logo.png. Si no existe, se muestra el espacio provisional. -->
                 <span class="brand__logo">
                     <span class="brand__logo-placeholder">Logo</span>
                     <img src="img/logo.png" alt="" data-fallback>
@@ -31,7 +31,6 @@
                 <span class="nav-toggle__bar"></span>
             </button>
 
-            <!-- Cada sección abre seccion.html?tipo=...; "Acceso administrativo" sigue provisional ("#") hasta la etapa del panel -->
             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul class="main-nav__list">
                     <li><a class="main-nav__link" href="index.html">Inicio</a></li>
@@ -42,8 +41,7 @@
                     <li><a class="main-nav__link" href="seccion.html?tipo=historia">Historia</a></li>
                     <li><a class="main-nav__link" href="seccion.html?tipo=galeria">Galería</a></li>
                     <li><a class="main-nav__link" href="seccion.html?tipo=eventos">Eventos</a></li>
-                    <li><a class="main-nav__link main-nav__link--admin" href="admin.html">Acceso
-                            administrativo</a></li>
+                    <li><a class="main-nav__link main-nav__link--admin" href="admin.html">Acceso administrativo</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,12 +49,6 @@
 
     <main>
         <!-- SECCIÓN PRINCIPAL -->
-        <!-- Imagen de portada configurable (la aplica app.js):
-         data-hero-image    ruta o URL de la imagen; vacío = fondo verde oscuro
-         data-hero-position posición de la imagen (center, top, center 30%...)
-         data-hero-overlay  capa oscura neutra de 0 a 1 (si hay imagen y no se indica, 0.25)
-         Opcional: data-hero-position-mobile para otra posición en móvil.
-         Para probar: data-hero-image="img/portada-prueba.jpg" -->
         <section class="hero" id="inicio" data-hero-image="img/portada.png" data-hero-position="center"
             data-hero-overlay="0.25">
             <div class="hero__inner">
@@ -70,13 +62,28 @@
             </div>
         </section>
 
+        <!-- BUSCADOR CULTURAL -->
+        <section class="search-section" id="buscador">
+            <div class="container">
+                <h2>¿Qué deseas conocer?</h2>
+                <p>Busca información sobre la cultura, historia y tradiciones de Males.</p>
+
+                <form id="form-busqueda" class="search-form">
+                    <input type="search" id="campo-busqueda" placeholder="Ejemplo: cultura, comidas, lugares..."
+                        aria-label="Buscar información cultural" required>
+                    <button type="submit">Buscar</button>
+                </form>
+
+                <div id="resultados-busqueda" class="search-results" aria-live="polite"></div>
+            </div>
+        </section>
+
         <!-- ACCESOS A CONTENIDOS -->
         <section class="explore" id="explorar">
             <div class="container">
                 <h2 class="explore__title">Explora el sitio</h2>
                 <p class="explore__intro">Elige una sección. Cada una se irá completando con contenido validado.</p>
 
-                <!-- Imágenes de tarjetas: frontend/img/cultura.jpg, comidas.jpg, lugares.jpg, tradiciones.jpg, historia.jpg, galeria.jpg, eventos.jpg -->
                 <ul class="card-grid">
                     <li class="card card--featured">
                         <div class="card__media">
